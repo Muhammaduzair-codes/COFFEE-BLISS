@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Deals & Combo Packages | Coffee Bliss</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia&family=Segoe+UI:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="nav-logo">
+                <img src="coff_logo.webp" alt="Coffee Bliss Logo">
+            </a>
+
+            <div class="nav-add">
+                <i class="fa-solid fa-location-dot"></i>
+                <select class="cities" aria-label="Select City">
+                    <option>Karachi</option>
+                    <option>Lahore</option>
+                    <option>Islamabad</option>
+                    <option>Peshawar</option>
+                </select>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="deals.html" class="active"><i class="fa-solid fa-fire"></i> Deals</a></li>
+                <li><a href="trending.html"><i class="fa-solid fa-arrow-trend-up"></i> Trending</a></li>
+                <li><a href="coupons.html"><i class="fa-solid fa-ticket"></i> Coupons</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                <li><a href="collaborator.html"><i class="fa-solid fa-handshake"></i> Collaborator</a></li>
+                <li><a href="order.html"><i class="fa-solid fa-cart-shopping"></i> Order Now</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-feedback"><i class="fa-solid fa-comment-dots"></i> Feedback</button>
+                <a href="order.html" class="cart-icon-btn" title="View Shopping Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+                <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="section-title">
+            <h2>SPECIAL COMBO DEALS & PACKAGES</h2>
+            <div class="divider"><i class="fa-solid fa-fire"></i></div>
+        </div>
+
+        <div class="product-grid">
+            <!-- Deal 1 -->
+            <div class="product-card">
+                <div class="card-img-wrap">
+                    <img src="coff-deal-americano-1.webp" alt="Americano Deal">
+                    <span class="card-tag">Bundle Deal</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Americano Buy 2 Get 4</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem;">Special family package! Buy 2 cups and get 4 hot Americano cups brewed to perfection.</p>
+                    <div class="card-price">$55.00</div>
+                    <div class="card-actions">
+                        <button class="btn-card-add" onclick="addToCartItem(event, 'Americano Buy 2 Get 4', 55.00, 'coff-deal-americano-1.webp')">
+                            <i class="fa-solid fa-cart-plus"></i> ADD TO CART
+                        </button>
+                        <a href="order.html" class="btn-card-buy" onclick="addToCartDirect('Americano Buy 2 Get 4', 55.00, 'coff-deal-americano-1.webp')">
+                            <i class="fa-solid fa-bolt"></i> BUY NOW
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deal 2 -->
+            <div class="product-card">
+                <div class="card-img-wrap">
+                    <img src="coff-deal-cappucino-1.jpg" alt="Cappucino Deal">
+                    <span class="card-tag">Special Deal</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Cappucino Buy 1 Get 2</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem;">Double trouble! Get two delicious frothy Cappucino cups with cocoa dusting for the price of one.</p>
+                    <div class="card-price">$55.00</div>
+                    <div class="card-actions">
+                        <button class="btn-card-add" onclick="addToCartItem(event, 'Cappucino Buy 1 Get 2', 55.00, 'coff-deal-cappucino-1.jpg')">
+                            <i class="fa-solid fa-cart-plus"></i> ADD TO CART
+                        </button>
+                        <a href="order.html" class="btn-card-buy" onclick="addToCartDirect('Cappucino Buy 1 Get 2', 55.00, 'coff-deal-cappucino-1.jpg')">
+                            <i class="fa-solid fa-bolt"></i> BUY NOW
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deal 3 -->
+            <div class="product-card">
+                <div class="card-img-wrap">
+                    <img src="coff-deals-latte-1.jpg" alt="Latte Deal">
+                    <span class="card-tag">Value Deal</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Latte Buy 1 Get 2</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.8rem;">Double silky smooth Latte bundle! Enjoy two creamy cups crafted with fresh steamed milk.</p>
+                    <div class="card-price">$55.00</div>
+                    <div class="card-actions">
+                        <button class="btn-card-add" onclick="addToCartItem(event, 'Latte Buy 1 Get 2', 55.00, 'coff-deals-latte-1.jpg')">
+                            <i class="fa-solid fa-cart-plus"></i> ADD TO CART
+                        </button>
+                        <a href="order.html" class="btn-card-buy" onclick="addToCartDirect('Latte Buy 1 Get 2', 55.00, 'coff-deals-latte-1.jpg')">
+                            <i class="fa-solid fa-bolt"></i> BUY NOW
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feedback Modal -->
+    <div id="feedback-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button id="close-feedback-modal" class="btn-close-modal">&times;</button>
+            <h3 style="color: var(--primary-gold); margin-bottom: 1rem;"><i class="fa-solid fa-comment"></i> We Value Your Feedback</h3>
+            <form id="feedback-form" class="checkout-form">
+                <div class="form-group">
+                    <label for="fb-name">Your Name</label>
+                    <input type="text" id="fb-name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="fb-email">Email Address</label>
+                    <input type="email" id="fb-email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="fb-msg">Your Feedback</label>
+                    <textarea id="fb-msg" rows="4" required placeholder="How was your Coffee Bliss experience?"></textarea>
+                </div>
+                <button type="submit" class="btn-place-order" style="margin-top: 0.5rem;">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>COFFEE BLISS</h2>
+                <p>Crafting perfection in every single cup. Bean there, done that!</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="deals.html">Special Deals</a></li>
+                    <li><a href="trending.html">Trending Brews</a></li>
+                    <li><a href="coupons.html">Coupons & Offers</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="collaborator.html">Collaborator</a></li>
+                    <li><a href="order.html">Order Page</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/not.her,type_man" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://threads.net" target="_blank" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Coffee Bliss. All Rights Reserved. Crafted with Passion.</p>
+        </div>
+    </footer>
+</body>
+</html>

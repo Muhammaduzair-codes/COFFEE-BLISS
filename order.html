@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order & Checkout | Coffee Bliss</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia&family=Segoe+UI:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <!-- Sticky Navigation Header -->
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="nav-logo">
+                <img src="coff_logo.webp" alt="Coffee Bliss Logo">
+            </a>
+
+            <!-- City Address Selector -->
+            <div class="nav-add">
+                <i class="fa-solid fa-location-dot"></i>
+                <select class="cities" aria-label="Select City">
+                    <option>Karachi</option>
+                    <option>Lahore</option>
+                    <option>Islamabad</option>
+                    <option>Peshawar</option>
+                </select>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="deals.html"><i class="fa-solid fa-fire"></i> Deals</a></li>
+                <li><a href="trending.html"><i class="fa-solid fa-arrow-trend-up"></i> Trending</a></li>
+                <li><a href="coupons.html"><i class="fa-solid fa-ticket"></i> Coupons</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                <li><a href="collaborator.html"><i class="fa-solid fa-handshake"></i> Collaborator</a></li>
+                <li><a href="order.html" class="active"><i class="fa-solid fa-cart-shopping"></i> Order Now</a></li>
+            </ul>
+
+            <!-- Header Actions -->
+            <div class="nav-actions">
+                <button class="btn-feedback"><i class="fa-solid fa-comment-dots"></i> Feedback</button>
+                <a href="order.html" class="cart-icon-btn" title="View Shopping Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+                <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Page Header -->
+        <div class="section-title">
+            <h2>YOUR COFFEE ORDER & CHECKOUT</h2>
+            <div class="divider"><i class="fa-solid fa-receipt"></i></div>
+        </div>
+
+        <div class="order-grid">
+            <!-- Left Column: Cart Items & Coupons -->
+            <div class="order-left-column">
+                <!-- Cart Items Card -->
+                <div class="order-section-card">
+                    <h3><i class="fa-solid fa-mug-saucer"></i> Selected Coffee Brews</h3>
+                    <div id="order-cart-items" class="cart-items-list">
+                        <!-- Dynamic Cart Rows Rendered Here by app.js -->
+                    </div>
+                </div>
+
+                <!-- Coupon Discount Section -->
+                <div class="order-section-card">
+                    <h3><i class="fa-solid fa-ticket"></i> Apply Coupon Discount</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                        Have a promo code? Enter it below to unlock exclusive discounts on your order.
+                    </p>
+
+                    <div class="coupon-input-box">
+                        <input type="text" id="coupon-code-input" placeholder="e.g. BLISS10" aria-label="Coupon Code">
+                        <button id="btn-apply-coupon" class="btn-apply-coupon">
+                            <i class="fa-solid fa-check"></i> Apply Code
+                        </button>
+                    </div>
+
+                    <div id="applied-coupon-container" style="margin-bottom: 1rem;"></div>
+
+                    <div>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Quick Coupons:</span>
+                        <div class="quick-coupons">
+                            <span class="quick-coupon-chip" onclick="applyQuickCoupon('BLISS10')">BLISS10 (10% OFF)</span>
+                            <span class="quick-coupon-chip" onclick="applyQuickCoupon('COFFEE20')">COFFEE20 (20% OFF)</span>
+                            <span class="quick-coupon-chip" onclick="applyQuickCoupon('FIRST50')">FIRST50 ($5 OFF)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Summary & Checkout Form -->
+            <div class="order-right-column">
+                <!-- Order Price Summary -->
+                <div class="order-section-card">
+                    <h3><i class="fa-solid fa-calculator"></i> Order Summary</h3>
+                    
+                    <div class="summary-row">
+                        <span>Items Subtotal:</span>
+                        <span id="summary-subtotal">$0.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Delivery Fee:</span>
+                        <span id="summary-delivery">$3.00</span>
+                    </div>
+
+                    <div class="summary-row discount">
+                        <span>Coupon Savings:</span>
+                        <span id="summary-discount">-$0.00</span>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Total Payable:</span>
+                        <span id="summary-total">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- Customer Details & Delivery Form -->
+                <div class="order-section-card">
+                    <h3><i class="fa-solid fa-truck-fast"></i> Delivery Details</h3>
+                    <form id="checkout-form" class="checkout-form">
+                        <div class="form-group">
+                            <label for="cust-name">Full Name *</label>
+                            <input type="text" id="cust-name" required placeholder="e.g. Alex Morgan">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cust-phone">Phone Number *</label>
+                            <input type="tel" id="cust-phone" required placeholder="e.g. +92 300 1234567">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cust-city">Delivery City *</label>
+                            <select id="cust-city" required>
+                                <option value="Karachi">Karachi</option>
+                                <option value="Lahore">Lahore</option>
+                                <option value="Islamabad">Islamabad</option>
+                                <option value="Peshawar">Peshawar</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cust-address">Delivery Address *</label>
+                            <textarea id="cust-address" rows="3" required placeholder="House/Flat #, Street, Area..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payment-method">Payment Method</label>
+                            <select id="payment-method">
+                                <option value="cod">Cash on Delivery (COD)</option>
+                                <option value="card">Credit / Debit Card</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-place-order">
+                            <i class="fa-solid fa-lock"></i> PLACE ORDER NOW
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feedback Modal -->
+    <div id="feedback-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button id="close-feedback-modal" class="btn-close-modal">&times;</button>
+            <h3 style="color: var(--primary-gold); margin-bottom: 1rem;"><i class="fa-solid fa-comment"></i> We Value Your Feedback</h3>
+            <form id="feedback-form" class="checkout-form">
+                <div class="form-group">
+                    <label for="fb-name">Your Name</label>
+                    <input type="text" id="fb-name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="fb-email">Email Address</label>
+                    <input type="email" id="fb-email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="fb-msg">Your Feedback</label>
+                    <textarea id="fb-msg" rows="4" required placeholder="How was your Coffee Bliss experience?"></textarea>
+                </div>
+                <button type="submit" class="btn-place-order" style="margin-top: 0.5rem;">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div id="order-success-modal" class="modal-overlay">
+        <div class="modal-card" style="text-align: center;">
+            <div style="font-size: 3.5rem; color: var(--accent-green); margin-bottom: 0.8rem;">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2 style="color: var(--primary-gold); margin-bottom: 0.5rem;">Order Placed Successfully!</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                Thank you for ordering with Coffee Bliss. Your fresh brew is being prepared with love!
+            </p>
+
+            <div style="background-color: var(--bg-surface); padding: 1.2rem; border-radius: 10px; text-align: left; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <p><strong>Order ID:</strong> <span id="modal-order-id" style="color: var(--primary-gold);">#CB-000000</span></p>
+                <p><strong>Customer:</strong> <span id="modal-order-name">-</span></p>
+                <p><strong>City:</strong> <span id="modal-order-city">-</span></p>
+                <p><strong>Total Amount:</strong> <span id="modal-order-total" style="color: var(--accent-green); font-weight: 700;">$0.00</span></p>
+            </div>
+
+            <button id="close-order-modal" class="btn-place-order" style="margin-top: 0;">
+                <i class="fa-solid fa-house"></i> Return to Homepage
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>COFFEE BLISS</h2>
+                <p>Crafting perfection in every single cup. Bean there, done that!</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="deals.html">Special Deals</a></li>
+                    <li><a href="trending.html">Trending Brews</a></li>
+                    <li><a href="coupons.html">Coupons & Discounts</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="collaborator.html">Collaborator</a></li>
+                    <li><a href="order.html">Order Page</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/not.her,type_man" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://threads.net" target="_blank" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Coffee Bliss. All Rights Reserved. Crafted with Passion.</p>
+        </div>
+    </footer>
+
+    <script>
+        function applyQuickCoupon(code) {
+            const input = document.getElementById("coupon-code-input");
+            if (input) {
+                input.value = code;
+                applyCouponCode(code);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Bliss | Handcrafted Coffee & Special Deals</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia&family=Segoe+UI:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <!-- Sticky Navigation Header -->
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="nav-logo">
+                <img src="coff_logo.webp" alt="Coffee Bliss Logo">
+            </a>
+
+            <!-- City Location Selector -->
+            <div class="nav-add">
+                <i class="fa-solid fa-location-dot"></i>
+                <select class="cities" aria-label="Select Store Location">
+                    <option>Karachi</option>
+                    <option>Lahore</option>
+                    <option>Islamabad</option>
+                    <option>Peshawar</option>
+                </select>
+            </div>
+
+            <!-- Integrated Header Search Bar -->
+            <div class="nav-search">
+                <div class="search-bar-wrap">
+                    <select class="search-category-select" aria-label="Category Filter">
+                        <option value="All">All</option>
+                        <option value="Economy">Economy</option>
+                        <option value="Expensive">Expensive</option>
+                        <option value="Eastern">Eastern</option>
+                        <option value="Western">Western</option>
+                    </select>
+                    <input type="search" class="input-search-field" placeholder="Search Coffee Bliss..." aria-label="Search Coffee">
+                    <button class="search-btn-icon" aria-label="Perform Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="deals.html"><i class="fa-solid fa-fire"></i> Deals</a></li>
+                <li><a href="trending.html"><i class="fa-solid fa-arrow-trend-up"></i> Trending</a></li>
+                <li><a href="coupons.html"><i class="fa-solid fa-ticket"></i> Coupons</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                <li><a href="collaborator.html"><i class="fa-solid fa-handshake"></i> Collaborator</a></li>
+                <li><a href="order.html"><i class="fa-solid fa-cart-shopping"></i> Order Now</a></li>
+            </ul>
+
+            <!-- Header Action Buttons -->
+            <div class="nav-actions">
+                <button class="btn-feedback"><i class="fa-solid fa-comment-dots"></i> Feedback</button>
+                <a href="order.html" class="cart-icon-btn" title="View Shopping Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+                <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slogan Banner -->
+    <div class="slogan-banner">
+        <span>BEAN THERE, DONE THAT!</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-tagline">Coffee is a Hug in a Mug | Life Begins After Coffee</h1>
+            <p class="hero-subtext">Experience handcrafted espresso, cold brews, and signature blends crafted to perfection by our master baristas.</p>
+            <div class="hero-btn-group">
+                <a href="#coffee-menu-section" class="btn-hero-primary"><i class="fa-solid fa-mug-saucer"></i> Explore Menu</a>
+                <a href="deals.html" class="btn-hero-secondary"><i class="fa-solid fa-fire"></i> View Combo Deals</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="main-container" id="coffee-menu-section">
+        <!-- Coffee Collection Section -->
+        <div class="section-title">
+            <h2>COFFEE COLLECTION</h2>
+            <div class="divider"><i class="fa-solid fa-heart"></i></div>
+        </div>
+        <div id="coffee-collection-grid" class="product-grid">
+            <!-- Dynamic coffee cards rendered here by app.js -->
+        </div>
+
+        <!-- Special Deals Section -->
+        <div class="section-title" style="margin-top: 4rem;">
+            <h2>SPECIAL DEALS & COMBOS</h2>
+            <div class="divider"><i class="fa-solid fa-fire"></i></div>
+        </div>
+        <div id="special-deals-grid" class="product-grid">
+            <!-- Dynamic deal cards rendered here by app.js -->
+        </div>
+    </main>
+
+    <!-- Universal Feedback Modal -->
+    <div id="feedback-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button id="close-feedback-modal" class="btn-close-modal">&times;</button>
+            <h3 style="color: var(--primary-gold); margin-bottom: 1rem;"><i class="fa-solid fa-comment"></i> We Value Your Feedback</h3>
+            <form id="feedback-form" class="checkout-form">
+                <div class="form-group">
+                    <label for="fb-name">Your Name</label>
+                    <input type="text" id="fb-name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="fb-email">Email Address</label>
+                    <input type="email" id="fb-email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="fb-msg">Your Feedback</label>
+                    <textarea id="fb-msg" rows="4" required placeholder="How was your Coffee Bliss experience?"></textarea>
+                </div>
+                <button type="submit" class="btn-place-order" style="margin-top: 0.5rem;">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>COFFEE BLISS</h2>
+                <p>Crafting perfection in every single cup. Domestic brand proudly serving fresh coffee daily.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="deals.html">Special Deals</a></li>
+                    <li><a href="trending.html">Trending Brews</a></li>
+                    <li><a href="coupons.html">Coupons & Offers</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="collaborator.html">Collaborate</a></li>
+                    <li><a href="order.html">Order Page</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/not.her,type_man" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://threads.net" target="_blank" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Coffee Bliss. All Rights Reserved. Crafted with Passion.</p>
+        </div>
+    </footer>
+</body>
+</html>
